@@ -1,0 +1,53 @@
+# Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
+project_name: imu_anomaly_detection
+label: imu_anomaly_detection
+description: |
+  A demo showcasing online-learning anomaly detection using an IMU sensor.
+category: Example|Machine Learning
+package: platform
+quality: internal
+source:
+- {path: app.c}
+- {path: main.c}
+- {path: accelerometer.c}
+include:
+- path: .
+  file_list:
+  - {path: app.h}
+  - {path: accelerometer.h}
+sdk: {id: gecko_sdk, version: 4.4.5}
+toolchain_settings:
+- {value: -Wno-unused-parameter, option: gcc_compiler_option}
+- {value: -Wno-missing-field-initializers, option: gcc_compiler_option}
+- {value: -u _printf_float, option: gcc_linker_option}
+component:
+- {from: machine_learning_applications, id: htm}
+- {id: EFR32MG24B310F1536IM48}
+- {id: app_assert}
+- {id: app_log}
+- {id: brd2601b}
+- {id: component_catalog}
+- {id: device_init}
+- {id: device_init_dpll}
+- {id: emlib_timer}
+- {id: gpiointerrupt}
+- {id: imu_driver}
+- instance: [vcom]
+  id: iostream_eusart
+- {id: iostream_recommended_stream}
+- {id: iostream_retarget_stdio}
+- instance: [led0, led1]
+  id: simple_led
+- {id: sl_system}
+- {id: sleeptimer}
+define:
+- {name: DEBUG_EFM}
+configuration:
+- {name: SL_BOARD_ENABLE_VCOM, value: '1'}
+- {name: SL_BOARD_ENABLE_SENSOR_IMU, value: '1'}
+- {name: SL_STACK_SIZE, value: '50000'}
+- {name: SL_HEAP_SIZE, value: '50000'}
+ui_hints: {}
+sdk_extension:
+- {id: machine_learning_applications, version: 1.0.0}
+
