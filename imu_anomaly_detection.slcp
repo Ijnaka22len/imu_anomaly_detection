@@ -2,8 +2,8 @@
 project_name: imu_anomaly_detection
 label: imu_anomaly_detection
 description: |
-  A demo showcasing online-learning anomaly detection using an IMU sensor.
-category: Example|Machine Learning
+  Online-learning anomaly detection using an IMU sensor.
+category: Edge Computing | Machine Learning
 package: platform
 quality: internal
 source:
