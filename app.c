@@ -1,18 +1,6 @@
 /***************************************************************************//**
  * @file
  * @brief Top level application functions
- *******************************************************************************
- * # License
- * <b>Copyright 2023 Silicon Laboratories Inc. www.silabs.com</b>
- *******************************************************************************
- *
- * The licensor of this software is Silicon Laboratories Inc. Your use of this
- * software is governed by the terms of Silicon Labs Master Software License
- * Agreement (MSLA) available at
- * www.silabs.com/about-us/legal/master-software-license-agreement. This
- * software is distributed to you in Source Code format and is governed by the
- * sections of the MSLA applicable to Source Code.
- *
  ******************************************************************************/
 
 #include <stdio.h>
@@ -46,7 +34,7 @@ static void on_data_available(uint8_t int_id, void *ctx)
  * Initialize application.
  ******************************************************************************/
 
-// Input SDR width, must be divisible by 3
+// Input SDR width,/3
 #define SDR_WIDTH 27
 
 // SDR instances
@@ -61,7 +49,7 @@ static sl_htm_tm_t tm;
 static sl_htm_sp_t sp;
 void app_init(void)
 {
-  // Initialize SDRs, x y and z will be encoded into one input sdr, hence the division by 3.
+  // Initialize SDRs, x y and z encoded into one input sdr, hence the division by 3.
   sl_htm_sdr_init(&sdr_x, SDR_WIDTH, SDR_WIDTH / 3);
   sl_htm_sdr_init(&sdr_y, SDR_WIDTH, SDR_WIDTH / 3);
   sl_htm_sdr_init(&sdr_z, SDR_WIDTH, SDR_WIDTH / 3);
